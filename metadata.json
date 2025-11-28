@@ -1,0 +1,5 @@
+{
+  "name": "ABG Interpretation Assistant",
+  "description": "A medical decision-support tool for interpreting Arterial Blood Gas values with rule-based classification and AI-powered clinical explanations.",
+  "requestFramePermissions": []
+}
