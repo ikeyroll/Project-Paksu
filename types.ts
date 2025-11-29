@@ -1,40 +1,24 @@
-
-export interface AbgInputData {
-  ph: string;
-  pco2: string;
-  po2: string;
-  hco3: string;
+export interface ABGValues {
+  pH: string;
+  pCO2: string;
+  pO2: string;
+  HCO3: string;
   baseExcess: string;
 }
 
-export interface ClassificationResult {
-  code: string;
-  name: string;
-  abnormalities: string[];
-}
-
-export interface NormalRanges {
-  ph: [number, number];
-  pco2: [number, number];
-  po2: [number, number];
-  hco3: [number, number];
-  baseExcess: [number, number];
-}
-
-export enum AbgCategory {
-  A = 'Acute Respiratory Acidosis',
-  B = 'Chronic Respiratory Acidosis',
-  C = 'Chronic Metabolic Alkalosis',
-  D = 'Acute Respiratory Alkalosis',
-  E = 'Chronic Respiratory Alkalosis',
-  F = 'Chronic Metabolic Acidosis',
-  G = 'Acute Metabolic Acidosis',
-  N = 'Normal',
-  X = 'Mixed/Unclassified Pattern'
-}
+export type CategoryCode = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'N' | '?';
 
 export interface InterpretationData {
-  meaning: string;
+  meaning: string[];
   causes: string[];
   nextSteps: string[];
+  safetyNote: string[];
+}
+
+export interface ClassificationResult {
+  categoryCode: CategoryCode;
+  disorderName: string;
+  description: string;
+  abnormalFeatures: string[];
+  interpretation: InterpretationData;
 }
